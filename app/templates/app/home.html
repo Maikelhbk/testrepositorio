@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 2</title>
+</head>
+<body>
+    {% if user.is_staff %}
+     <h2>Lista de clientes</h2>
+        {% for p in clientes %}
+        <div>
+            <div>
+             <h2>{{p.rut_cliente}}</h2>
+             <h2>{{p.nombre}}</h2>
+             <h2>{{p.correo}}</h2>
+             <h2>{{p.empresa}}</h2>
+             <h2>{{p.telefono}}</h2>
+            </div>
+
+        </div>
+     <td>
+         <a href="{% url 'modificar_cliente' p.id %}">modificar</a>
+     </td>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
